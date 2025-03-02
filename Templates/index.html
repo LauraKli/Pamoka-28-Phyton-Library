@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knygų biblioteka</title>
+</head>
+<body>
+    <h1>Bibliotekos knygos</h1>
+
+    <h2>Visos knygos</h2>
+    <ul>
+        {% for book in books %}
+            <li>{{ book.title }} - {{ book.author }} ({{ book.year_published }})</li>
+        {% endfor %}
+    </ul>
+
+    <br>
+    <h2>Veiksmai:</h2>
+    <ul>
+        <li><a href="{{ url_for('borrow_book') }}">Paskolinti knygą</a></li>
+        <li><a href="{{ url_for('view_borrowed_books') }}">Paskolintos knygos</a></li>
+        <li><a href="{{ url_for('add_book') }}">Pridėti knygą</a></li>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paskolintos knygos</title>
+    <style>
+       
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Paskolintos knygos</h1>
+    </header>
+
+    <main>
+        <h2>Visos paskolintos knygos:</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Knygos pavadinimas</th>
+                    <th>Autorius</th>
+                    <th>Skolininkas</th>
+                    <th>Data, kada paskolinta</th>
+                    <th>Grąžinimo terminas</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for borrowed_book in borrowed_books %}
+                    <tr>
+                        <td>{{ borrowed_book.book.title }}</td>
+                        <td>{{ borrowed_book.book.author }}</td>
+                        <td>{{ borrowed_book.reader.name }}</td>
+                        <td>{{ borrowed_book.borrowed_at.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+                        <td>{{ borrowed_book.return_due_date.strftime('%Y-%m-%d') }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <button onclick="window.location.href='{{ url_for('index') }}'">Grįžti į visų knygų sąrašą</button>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Biblioteka</p>
+    </footer>
+</body>
+</html>

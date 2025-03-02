@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pridėti knygą</title>
+</head>
+<body>
+    <header>
+        <h1>Pridėti knygą</h1>
+    </header>
+
+    <main>
+        <h2>Įveskite knygos informaciją:</h2>
+        <form action="/add_book" method="POST">
+            <label for="title">Pavadinimas:</label><br>
+            <input type="text" id="title" name="title" required><br><br>
+            
+            <label for="author">Autorius:</label><br>
+            <input type="text" id="author" name="author" required><br><br>
+            
+            <label for="year">Metai:</label><br>
+            <input type="number" id="year" name="year" required><br><br>
+            
+            <button type="submit">Pridėti knygą</button>
+        </form>
+
+        <button onclick="window.location.href='index.html'">Grįžti į pagrindinį puslapį</button>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Biblioteka</p>
+    </footer>
+</body>
+</html>

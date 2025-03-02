@@ -1,0 +1,43 @@
+<<!DOCTYPE html>
+<html lang="lt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paskolintų knygų sąrašas</title>
+</head>
+<body>
+    <header>
+        <h1>Paskolintos knygos</h1>
+    </header>
+
+    <main>
+        <h2>Paskolintos knygos:</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Knygos ID</th>
+                    <th>Skaitytojo ID</th>
+                    <th>Paskolinimo data</th>
+                    <th>Grąžinimo data</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for borrowed_book in borrowed_books %}
+                <tr>
+                    <td>{{ borrowed_book.book_id }}</td>
+                    <td>{{ borrowed_book.reader_id }}</td>
+                    <td>{{ borrowed_book.borrow_date }}</td>
+                    <td>{{ borrowed_book.return_date }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <button onclick="window.location.href='index.html'">Grįžti į pagrindinį puslapį</button>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Biblioteka</p>
+    </footer>
+</body>
+</html>
